@@ -39,7 +39,7 @@ public:
     }
 
 
-    Matrix operator *(const Matrix& other) //перегрузка умножения матриц
+    Matrix operator *(const Matrix& other) /*перегрузка умножения матриц */
     {
         Matrix temp;
         temp.data=new T  [other.N][other.M];
@@ -59,7 +59,7 @@ public:
         }
 
     }
-    Matrix operator +(const Matrix &other) //перегрузка сложения матриц
+    Matrix operator +(const Matrix &other) /*перегрузка сложения матриц*/
     {   if (this->N=other.N && this->M=other.M)
         {
            Matrix temp;
@@ -78,7 +78,7 @@ public:
     }
 
 
-    Matrix operator -(const Matrix &other) //перегрузка вычитания матриц
+    Matrix operator -(const Matrix &other) /*перегрузка вычитания матриц*/
     {   if (this->N=other.N && this->M=other.M)
         {
            Matrix temp;
@@ -95,7 +95,7 @@ public:
     }
 
 
-    bool operator ==(const Matrix & other){ // проверка на равенство матриц, без 0 и 1
+    bool operator ==(const Matrix & other){ /* проверка на равенство матриц, без 0 и 1 */
 
         if (this->N=other.N && this->M=other.M) {
             for (int i=0; i<this->N;i++) {
@@ -128,6 +128,6 @@ public:
 };
 int main()
 {
-setlocale(LC_ALL,"ru");
+setlocale(LC_ALL,"");
 
 }
