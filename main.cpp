@@ -10,12 +10,13 @@ using namespace std;
 class Matrix {
 
 private:
-    int N;// строки
-    int M;// столбцы
+    int N;// СЃС‚СЂРѕРєРё
+    int M;// СЃС‚РѕР»Р±С†С‹
 
 public:
     T *data;
-    Matrix(int N, int M){ //конструктор создает матрицу указанного размера
+    Matrix(int N, int M){ //РєРѕРЅСЃС‚СЂСѓРєС‚РѕСЂ СЃРѕР·РґР°РµС‚ РјР°С‚СЂРёС†Сѓ СѓРєР°Р·Р°РЅРЅРѕРіРѕ СЂР°Р·РјРµСЂР°
+    this->N=N;
     this->N=N;
     this->M=M;
     this->data=new T [N][M]={{0}};
@@ -23,11 +24,11 @@ public:
     }
 
 
-    Matrix() { //конструктор считывает из файла
-    ifstream input("здесь путь к файлу");
+    Matrix() { //РєРѕРЅСЃС‚СЂСѓРєС‚РѕСЂ СЃС‡РёС‚С‹РІР°РµС‚ РёР· С„Р°Р№Р»Р°
+    ifstream input("Р·РґРµСЃСЊ РїСѓС‚СЊ Рє С„Р°Р№Р»Сѓ");
 
     if (!input){
-        cout<<"Файл не найден"<<endl;
+        cout<<"С„Р°Р№Р» РЅРµ РЅР°Р№РґРµРЅ"<<endl;
     }
     input>>N;
     input>>M;
@@ -39,12 +40,12 @@ public:
     }
 
 
-    Matrix operator *(const Matrix& other) /*перегрузка умножения матриц */
+    Matrix operator *(const Matrix& other) /*РїРµСЂРµРіСЂСѓР·РєР° СѓРјРЅРѕР¶РµРЅРёСЏ РјР°С‚СЂРёС†*/
     {
         Matrix temp;
         temp.data=new T  [other.N][other.M];
         if (this->M!=other.N)
-            cout<<"Нельзя умножить";
+            cout<<"ГЌГҐГ«ГјГ§Гї ГіГ¬Г­Г®Г¦ГЁГІГј";
         else{
             for (int i=0;i<other.N){
                 for (int j=0;i<other.M) {
@@ -59,7 +60,7 @@ public:
         }
 
     }
-    Matrix operator +(const Matrix &other) /*перегрузка сложения матриц*/
+    Matrix operator +(const Matrix &other) /*РїРµСЂРµРіСЂСѓР·РєР° СЃР»РѕР¶РµРЅРёСЏ РјР°С‚СЂРёС†*/
     {   if (this->N=other.N && this->M=other.M)
         {
            Matrix temp;
@@ -71,14 +72,14 @@ public:
            return temp;
         }
         else {
-            cout<<"сложить нельзя"<<endl;
+            cout<<"Г±Г«Г®Г¦ГЁГІГј Г­ГҐГ«ГјГ§Гї"<<endl;
         }
 
 
     }
 
 
-    Matrix operator -(const Matrix &other) /*перегрузка вычитания матриц*/
+    Matrix operator -(const Matrix &other) /*РїРµСЂРµРіСЂСѓР·РєР° РІС‹С‡РёС‚Р°РЅРёСЏ РјР°С‚СЂРёС†*/
     {   if (this->N=other.N && this->M=other.M)
         {
            Matrix temp;
@@ -90,12 +91,12 @@ public:
            return temp;
         }
         else {
-            cout<<"вычесть нельзя"<<endl;
+            cout<<"ГўГ»Г·ГҐГ±ГІГј Г­ГҐГ«ГјГ§Гї"<<endl;
         }
     }
 
 
-    bool operator ==(const Matrix & other){ /* проверка на равенство матриц, без 0 и 1 */
+    bool operator ==(const Matrix & other){ /*РїСЂРѕРІРµСЂРєР° РЅР° СЂР°РІРµРЅСЃС‚РІРѕ РјР°С‚СЂРёС† */
 
         if (this->N=other.N && this->M=other.M) {
             for (int i=0; i<this->N;i++) {
